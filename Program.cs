@@ -1,81 +1,39 @@
 ﻿//using System;
 
-//namespace Daily_Practice
+//namespace Practice_Bhai
 //{
-//    public class Account
+//    interface ILogger
 //    {
-//        public decimal accNo;
-//        public decimal Balance;
+//        void Log(string message);
+//    }
 
-//        public Account(decimal accno,decimal balance)
+//    public class FileLogger : ILogger
+//    {
+//        public void Log(string message)
 //        {
-//            accNo = accno;
-//            Balance = balance;
-//        }
-//        public virtual void Deposit(decimal amount)
-//        {
-//            Balance += amount;
-//            Console.WriteLine($"Congrdulation {amount} was credited your account");
-//        }
-//        public virtual void Withdraw(decimal amount)
-//        {
-//            if(Balance>amount)
-//            {
-//                Balance -= amount;
-//                Console.WriteLine($"Hello {amount} was Debited from your account");
-//            }
-//            else
-//            {
-//                Console.WriteLine("Sosrry..Insufficint balance!");
-//            }
-//        }
-//        public virtual void getBalance()
-//        {
-//            Console.WriteLine($" {Balance} You have. Thank You");
+//            Console.WriteLine("Logging to File");
 //        }
 //    }
-//    public class savingsAccount : Account
+
+//    public class DatabaseLogger : ILogger
 //    {
-//        public double interestRate = 0.06;
-//        public savingsAccount(decimal accno, decimal balance) : base(accno, balance)
-//        { }
-//        public void addInterest()
+//        public void Log(string message)
 //        {
-//            double interset = 1000 * interestRate;
-//            Console.WriteLine("Interest added " + interset);
-//        }
-//        public override void Withdraw(decimal amount)
-//        {
-//            base.Withdraw(amount);
-//            Console.WriteLine("withdrwal from your savings account");
+//            Console.WriteLine("Logging to Database");
 //        }
 //    }
-//    public class currentAccount : Account
-//    {
-//        public currentAccount(decimal accno,decimal balance) : base(accno, balance) { }
-//        public override void Withdraw(decimal amount)
-//        {
 
-//            base.Withdraw(amount);
-//            Console.WriteLine("withdrawal from your current account");
-//        }
-
-//    }
 //    internal class Program
 //    {
 //        static void Main(string[] args)
 //        {
-//            Account a = new Account(111,1000000);
-//            a.Deposit(300);
-//            a.Withdraw(600);
-//            a.getBalance();
+//            ILogger logger;
 
-//            savingsAccount s = new savingsAccount(111,700);
-//            s.Withdraw(900);
+//            logger = new FileLogger();
+//            logger.Log("Any message");
 
-//            currentAccount c = new currentAccount(111, 900);
-//            c.Withdraw(500);
-
+//            logger = new DatabaseLogger();
+//            logger.Log("Any message");
 //        }
 //    }
 //}
